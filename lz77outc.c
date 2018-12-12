@@ -30,7 +30,9 @@
 #include <alloc.h>
 #include <dir.h>
 #else
+#ifndef __clang__
 #include <malloc.h>
+#endif
 #endif
 
 

@@ -31,7 +31,9 @@
 #include <alloc.h>
 #else
 #include <memory.h>
+#ifndef __clang__
 #include <malloc.h>
+#endif
 #endif
 
 #include "pcmsx.h"

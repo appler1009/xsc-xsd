@@ -19,7 +19,9 @@
 #include <mem.h>
 #include <model.h>
 #else
+#ifndef __clang__
 #include <malloc.h>
+#endif
 #include <memory.h>
 #define O_BINARY (0)
 #endif

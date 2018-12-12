@@ -28,7 +28,9 @@
 #endif
 #else
 #define O_BINARY 0
+#ifndef __clang__
 #include <malloc.h>
+#endif
 #include <memory.h>
 #endif
 #include <fcntl.h>
