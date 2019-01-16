@@ -8,7 +8,7 @@ deploy:
   provider: releases
   file: release.tgz
   skip_cleanup: true
-  on: tags
+  on:
     branch: master
 env:
   global:
