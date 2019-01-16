@@ -1,12 +1,14 @@
 os: osx
 language: cpp
 compiler: gcc
-
-#before_install:
-#  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-#  - sudo apt-get update -qq
-
-install:
-  - make
-#  - sudo apt-get install -qq g++-6
-#  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+script:
+- make
+- tar cvfz release.tgz xsc xsd
+deploy:
+  provider: releases
+  file: release.tgz
+  skip_cleanup: true
+  on: tags
+env:
+  global:
+    secure: B2guu//5i1X0vT+HC1AUpvfBwJv5PQ9gOQxq8afcWLNuceXNDAxgEzaRSmsgaeigPNt+Y+C6t/ZKrjWDlzIofGPK1+XNFV/QLg5bOR8kRrxs9XPSZTeDKgR+5Wi/tOat9uSuOHeGjsj2SWeK85elC0zK0BQBMEQcOwUubw/nFhUFNd4KlyyllygSjWm0YB4G/QxQt3C1xifhLO48xY7yU7X1dHpsC+7+zcW1jjPats1oY8Xl+oIT596MevXkSOPU3inVNmHB+x21YS/ojuO83G09ijWAk703ufTp3OH5zMDqWgbSGu4eNz53ICpYk6DsHvWEPounIOXHo8x47j6VONkkKJminbAyamNC+RU+Cgx7LlhKc1A7WebaL8q3FObYGsWg/izkUKlKPr/eSL6rm7+XeFdUPr/J6sSomHPCpeAR8fnIpgX5RT2rnFPDkMwmSecOpp6qigC84+Tx0n1zDlKFdcnfODP/jU6SAE+ywMGWo7Oc/qwHULkx/kqiacqjIVVUZ3Ub/pfwHKcNprfDg0JNFZpiRB/mu8bB1vZuqA1D2usLRmJUFZSyNUtNb9mVWc3Sb2OAHZzGABnvppNJIR+jjMilXn4OW9vxHN5cCMy2ySh9fMWBM728P+JKmXAEugxlKgO0NptEfFa4V0B2jnNdjLrLDi6qo8yzT0gR75s=
