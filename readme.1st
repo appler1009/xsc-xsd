@@ -1,7 +1,7 @@
 Sterrebeek, 21-5-1998
 
 This archive contains the source of the programs XSC and XSD. More info
-about these programs can be found in the text file READ.ME.
+about these programs can be found in the text file README.md.
 
 These sources may be used by any one who wants to support the XSA format,
 for example in an MSX emulator, provided the following conditions are met:

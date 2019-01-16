@@ -1,8 +1,10 @@
-       XSC and XSD: Disk distribution software for MSX, Amiga, UNIX and PC
-                        Copyright (c) 1995 XelaSoft
-                        Leiden, September 15th 1996
+XSC and XSD: Disk distribution software for MSX, Amiga, UNIX and PC
+-------------------------------------------------------------------
 
+Copyright (c) 1995 XelaSoft
+Leiden, September 15th 1996
 
+[![Build Status](https://travis-ci.org/appler1009/xsc-xsd.svg?branch=master)](https://travis-ci.org/appler1009/xsc-xsd)
 
 The programs in this archive are designed to use disk-images created
 with XelaSoft's D2F and F2D tools on non-MSX systems. The programs 
