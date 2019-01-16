@@ -1,2 +1,12 @@
 os: osx
+language: cpp
+compiler: gcc
 
+#before_install:
+#  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+#  - sudo apt-get update -qq
+
+install:
+  - make
+#  - sudo apt-get install -qq g++-6
+#  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
