@@ -40,3 +40,25 @@ Oude Singel 206
 When you have any comments, suggestions, bug reports, etc. please send these
 to the above mentioned address or to:
 awulms@inter.nl.net
+
+License
+-------
+
+Sterrebeek, 21-5-1998
+
+This archive contains the source of the programs XSC and XSD.
+
+These sources may be used by any one who wants to support the XSA format,
+for example in an MSX emulator, provided the following conditions are met:
+1) You have to put the following phrase in the documentation of the program
+   in which you use the XSA code:
+     <program reference> uses XSA code developed by Alex Wulms/XelaSoft
+   Notice that you can replace <program reference> with the name of your
+   program, for example 'The MSX emulator'. 
+2) You do not make any changes to the XSA code that can impact the
+   compatibility with the XSA format. Special attention should be paid to
+   the compression routine. When the compression routine is changed, for
+   example for performance reasons, then you must make sure that the newly
+   compressed files can be uncompressed on an MSX system in a 64KB address
+   space.
+
