@@ -1,7 +1,3 @@
-#before_deploy:
-#- if [[ ("$TRAVIS_OS_NAME" == "osx") ]]; then export OSX_DEPLOY="true"; fi
-#- if [[ ("$TRAVIS_OS_NAME" == "linux") ]]; then export LINUX_DEPLOY="true"; fi
-
 os:
 - osx
 - linux
@@ -12,32 +8,29 @@ compiler: gcc
 
 script:
 - echo "$TRAVIS_OS_NAME"
-#- echo "$OSX_DEPLOY"
-#- echo "$LINUX_DEPLOY"
 - make
-#- tar cvfz release.tgz xsc xsd
 - if [[ ("$TRAVIS_OS_NAME" == "osx") ]]; then tar cvfz release-osx.tgz xsc xsd; fi
 - if [[ ("$TRAVIS_OS_NAME" == "linux") ]]; then tar cvfz release-linux.tgz xsc xsd; fi
 
 deploy:
 - provider: releases
+  name: MacOS release $(date +'%Y.%m.%d')
   file: release-osx.tgz
   skip_cleanup: true
   api_key:
     secure: B2guu//5i1X0vT+HC1AUpvfBwJv5PQ9gOQxq8afcWLNuceXNDAxgEzaRSmsgaeigPNt+Y+C6t/ZKrjWDlzIofGPK1+XNFV/QLg5bOR8kRrxs9XPSZTeDKgR+5Wi/tOat9uSuOHeGjsj2SWeK85elC0zK0BQBMEQcOwUubw/nFhUFNd4KlyyllygSjWm0YB4G/QxQt3C1xifhLO48xY7yU7X1dHpsC+7+zcW1jjPats1oY8Xl+oIT596MevXkSOPU3inVNmHB+x21YS/ojuO83G09ijWAk703ufTp3OH5zMDqWgbSGu4eNz53ICpYk6DsHvWEPounIOXHo8x47j6VONkkKJminbAyamNC+RU+Cgx7LlhKc1A7WebaL8q3FObYGsWg/izkUKlKPr/eSL6rm7+XeFdUPr/J6sSomHPCpeAR8fnIpgX5RT2rnFPDkMwmSecOpp6qigC84+Tx0n1zDlKFdcnfODP/jU6SAE+ywMGWo7Oc/qwHULkx/kqiacqjIVVUZ3Ub/pfwHKcNprfDg0JNFZpiRB/mu8bB1vZuqA1D2usLRmJUFZSyNUtNb9mVWc3Sb2OAHZzGABnvppNJIR+jjMilXn4OW9vxHN5cCMy2ySh9fMWBM728P+JKmXAEugxlKgO0NptEfFa4V0B2jnNdjLrLDi6qo8yzT0gR75s=
   on:
-    #condition: $OSX_DEPLOY = "true"
     condition: $TRAVIS_OS_NAME = "osx"
-    #tags: true
-    all_branches: true
+    branch: master
+    #all_branches: true
 - provider: releases
+  name: Linux release $(date +'%Y.%m.%d')
   file: release-linux.tgz
   skip_cleanup: true
   api_key:
     secure: B2guu//5i1X0vT+HC1AUpvfBwJv5PQ9gOQxq8afcWLNuceXNDAxgEzaRSmsgaeigPNt+Y+C6t/ZKrjWDlzIofGPK1+XNFV/QLg5bOR8kRrxs9XPSZTeDKgR+5Wi/tOat9uSuOHeGjsj2SWeK85elC0zK0BQBMEQcOwUubw/nFhUFNd4KlyyllygSjWm0YB4G/QxQt3C1xifhLO48xY7yU7X1dHpsC+7+zcW1jjPats1oY8Xl+oIT596MevXkSOPU3inVNmHB+x21YS/ojuO83G09ijWAk703ufTp3OH5zMDqWgbSGu4eNz53ICpYk6DsHvWEPounIOXHo8x47j6VONkkKJminbAyamNC+RU+Cgx7LlhKc1A7WebaL8q3FObYGsWg/izkUKlKPr/eSL6rm7+XeFdUPr/J6sSomHPCpeAR8fnIpgX5RT2rnFPDkMwmSecOpp6qigC84+Tx0n1zDlKFdcnfODP/jU6SAE+ywMGWo7Oc/qwHULkx/kqiacqjIVVUZ3Ub/pfwHKcNprfDg0JNFZpiRB/mu8bB1vZuqA1D2usLRmJUFZSyNUtNb9mVWc3Sb2OAHZzGABnvppNJIR+jjMilXn4OW9vxHN5cCMy2ySh9fMWBM728P+JKmXAEugxlKgO0NptEfFa4V0B2jnNdjLrLDi6qo8yzT0gR75s=
   on:
-    #condition: $LINUX_DEPLOY = "true"
-    condition: $TRAVIS_OS_NAME = "true"
-    #tags: true
-    all_branches: true
+    condition: $TRAVIS_OS_NAME = "linux"
+    branch: master
+    #all_branches: true
 
