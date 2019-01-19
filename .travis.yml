@@ -11,6 +11,9 @@ language: cpp
 compiler: gcc
 
 script:
+- echo "$TRAVIS_OS_NAME"
+- echo "$OSX_DEPLOY"
+- echo "$LINUX_DEPLOY"
 - make
 - tar cvfz release.tgz xsc xsd
 
