@@ -14,7 +14,7 @@ script:
 
 deploy:
 - provider: releases
-  name: MacOS release $(date +'%Y.%m.%d')
+  name: Release $(date +'%Y.%m.%d')
   file: release-osx.tgz
   skip_cleanup: true
   api_key:
@@ -22,9 +22,8 @@ deploy:
   on:
     condition: $TRAVIS_OS_NAME = "osx"
     branch: master
-    #all_branches: true
 - provider: releases
-  name: Linux release $(date +'%Y.%m.%d')
+  name: Release $(date +'%Y.%m.%d')
   file: release-linux.tgz
   skip_cleanup: true
   api_key:
@@ -32,5 +31,4 @@ deploy:
   on:
     condition: $TRAVIS_OS_NAME = "linux"
     branch: master
-    #all_branches: true
 
